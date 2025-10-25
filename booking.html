@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - City Technician</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="City Technician Logo" style="height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="booking.html">Book an Appointment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="booking-form-section py-5 bg-light">
+        <div class="container">
+            <div class="row g-5 fade-in-section">
+                
+                <div class="col-lg-7">
+                    <div class="booking-form-container card border-0 shadow-lg">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="card-title fw-bold mb-3">Schedule Your Repair</h2>
+                            <p class="card-subtitle mb-4 text-muted">Fill out the form and we'll confirm your appointment shortly.</p>
+                            
+                            <!-- <form id="bookingForm" 
+                                  name="contact-booking" 
+                                  method="POST" 
+                                  data-netlify="true" 
+                                  action="/thank-you.html"> -->
+
+<form id="bookingForm" 
+      name="contact-booking" 
+      method="POST" 
+      data-netlify="true">
+
+                                <input type="hidden" name="form-name" value="contact-booking" />
+                                
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="fullName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="fullName" name="Full Name" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control form-control-lg" id="phoneNumber" name="Phone Number" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Full Address (Sasaram)</label>
+                                        <textarea class="form-control form-control-lg" id="address" name="Address" rows="2" required></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="applianceType" class="form-label">Appliance Type</label>
+                                        <select class="form-select form-select-lg" id="applianceType" name="Appliance Type" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option>Refrigerator</option>
+                                            <option>Washing Machine</option>
+                                            <option>Air Conditioner (AC)</option>
+                                            <option>Microwave Oven</option>
+                                            <option>LED TV</option>
+                                            <option>RO Water Purifier</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="preferredDate" class="form-label">Preferred Date</label>
+                                        <input type="date" class="form-control form-control-lg" id="preferredDate" name="Preferred Date" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="issueDescription" class="form-label">Describe the Issue</label>
+                                        <textarea class="form-control form-control-lg" id="issueDescription" name="Issue Description" rows="3" placeholder="e.g., Fridge is not cooling" required></textarea>
+                                    </div>
+                                    <div class="col-12 d-grid mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Book Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="p-4 rounded-3 h-100" style="background-color: #e9ecef;">
+                        <h3 class="fw-bold">Why Book With Us?</h3>
+                        <p class="text-muted">We guarantee a professional and hassle-free experience.</p>
+                        <ul class="list-unstyled why-us-list mt-4">
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-shield-check-fill text-primary fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Verified Experts</h6>
+                                    <span>Skilled & background-checked technicians.</span>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-geo-alt-fill text-primary fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Doorstep Service</h6>
+                                    <span>We come to you anywhere in Sasaram.</span>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="bi bi-cash-coin text-primary fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Transparent Pricing</h6>
+                                    <span>Clear, upfront costs with no hidden fees.</span>
+                                </div>
+                            </li>
+                             <li class="d-flex align-items-start">
+                                <i class="bi bi-telephone-fill text-primary fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Need Help?</h6>
+                                    <span>Call us directly at +91 8898917624</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3">
+                    <img src="images/favicon.png" height="100"/>
+                    <p>Your trusted partner for home appliance repair services in Sasaram. Quality service, delivered.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Quick Links</h5>
+                    <p><a href="index.html" class="text-white">Home</a></p>
+                    <p><a href="services.html" class="text-white">Services</a></p>
+                    <p><a href="booking.html" class="text-white">Booking</a></p>
+                    <p><a href="about.html" class="text-white">About Us</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                     <h5 class="text-uppercase mb-4 fw-bold">Contact</h5>
+                     <p><i class="bi bi-geo-alt-fill me-2"></i>#17, VL Square Complex, Dharamshala Rd, Sasaram - 821115</p>
+                     <p><i class="bi bi-envelope-fill me-2"></i>info@citytechnician.com</p>
+                     <p><i class="bi bi-telephone-fill me-2"></i>+91 8898917624</p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="text-center">
+                <p>Copyright © <span id="copyright-year">2025</span> City Technician. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

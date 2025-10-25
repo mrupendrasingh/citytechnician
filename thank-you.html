@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - City Technician</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="City Technician Logo" style="height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="booking.html">Book an Appointment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="thank-you-section py-5 bg-light" style="min-height: 50vh;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 80px;"></i>
+                            <h1 class="fw-bold mt-4">Thank You!</h1>
+                            <p class="lead text-muted mb-4">Your appointment request has been submitted successfully. We will contact you shortly to confirm.</p>
+                            <a href="index.html" class="btn btn-primary btn-lg">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3">
+                    <img src="images/favicon.png" height="100"/>
+                    <p>Your trusted partner for home appliance repair services in Sasaram. Quality service, delivered.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Quick Links</h5>
+                    <p><a href="index.html" class="text-white">Home</a></p>
+                    <p><a href="services.html" class="text-white">Services</a></p>
+                    <p><a href="booking.html" class="text-white">Booking</a></p>
+                    <p><a href="about.html" class="text-white">About Us</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                     <h5 class="text-uppercase mb-4 fw-bold">Contact</h5>
+                     <p><i class="bi bi-geo-alt-fill me-2"></i>#17, VL Square Complex, Dharamshala Rd, Sasaram - 821115</p>
+                     <p><i class="bi bi-envelope-fill me-2"></i>info@citytechnician.com</p>
+                     <p><i class="bi bi-telephone-fill me-2"></i>+91 8898917624</p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="text-center">
+                <p>Copyright © <span id="copyright-year">2025</span> City Technician. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

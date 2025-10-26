@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - City Technician</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="City Technician Logo" style="height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="booking.html">Book an Appointment</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="blog-post-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="post-content-container">
+                        
+                        <div class="text-center">
+                            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading post...</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3">
+                    <img src="images/favicon.png" height="100"/>
+                    <p>Your trusted partner for home appliance repair services in Sasaram. Quality service, delivered.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Quick Links</h5>
+                    <p><a href="index.html" class="text-white">Home</a></p>
+                    <p><a href="services.html" class="text-white">Services</a></p>
+                    <p><a href="booking.html" class="text-white">Booking</a></p>
+                    <p><a href="about.html" class="text-white">About Us</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                     <h5 class="text-uppercase mb-4 fw-bold">Contact</h5>
+                     <p><i class="bi bi-geo-alt-fill me-2"></i>#17, VL Square Complex, Dharamshala Rd, Sasaram - 821115</p>
+                     <p><i class="bi bi-envelope-fill me-2"></i>info@citytechnician.com</p>
+                     <p><i class="bi bi-telephone-fill me-2"></i>+91 8898917624</p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="text-center">
+                <p>Copyright © <span id="copyright-year">2025</span> City Technician. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script>
+        // *** PASTE YOUR FIREBASE CONFIG OBJECT HERE (same as before) ***
+        // const firebaseConfig = {
+        //     apiKey: "YOUR_API_KEY",
+        //     authDomain: "YOUR_AUTH_DOMAIN",
+        //     projectId: "YOUR_PROJECT_ID",
+        //     storageBucket: "YOUR_STORAGE_BUCKET",
+        //     messagingSenderId: "YOUR_SENDER_ID",
+        //     appId: "YOUR_APP_ID"
+        // };
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyAxR0Gs1UhXEx6LEeEdXPjjyE-oHeB1u14",
+  authDomain: "city-technician-blog.firebaseapp.com",
+  projectId: "city-technician-blog",
+  storageBucket: "city-technician-blog.firebasestorage.app",
+  messagingSenderId: "824636956173",
+  appId: "1:824636956173:web:d8db909b85065dbbdebf44",
+  //measurementId: "G-PL9SK4D7RH"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Load single post
+        document.addEventListener("DOMContentLoaded", async () => {
+            const postContainer = document.getElementById("post-content-container");
+
+            try {
+                // Get the Post ID from the URL (e.g., ...?id=ABCDEFG123)
+                const urlParams = new URLSearchParams(window.location.search);
+                const postId = urlParams.get('id');
+
+                if (!postId) {
+                    postContainer.innerHTML = "<h1>Error: No post ID provided.</h1><a href='blogs.html'>Back to Blog</a>";
+                    return;
+                }
+
+                // Get the specific document from Firestore
+                const docRef = db.collection("blogs").doc(postId);
+                const doc = await docRef.get();
+
+                if (doc.exists) {
+                    const post = doc.data();
+                    
+                    // Set the page title
+                    document.title = `${post.title} - City Technician`;
+
+                    // Format the date (if it exists)
+                    let formattedDate = '';
+                    if (post.publishedDate) {
+                        formattedDate = post.publishedDate.toDate().toLocaleDateString('en-IN', {
+                            year: 'numeric', month: 'long', day: 'numeric'
+                        });
+                    }
+
+                    // Render the full post content
+                    postContainer.innerHTML = `
+                        <h1 class="fw-bold mb-3">${post.title}</h1>
+                        <p class="text-muted mb-4">Posted on ${formattedDate}</p>
+                        <img src="${post.imageUrl}" class="img-fluid rounded shadow-sm mb-4" alt="${post.title}">
+                        
+                        <div class="blog-content">
+                            ${post.content}
+                        </div>
+                        <hr class="my-5">
+                        <a href="blogs.html" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Back to All Posts</a>
+                    `;
+
+                } else {
+                    console.error("No such document!");
+                    postContainer.innerHTML = "<h1>Error: Post not found.</h1><a href='blogs.html'>Back to Blog</a>";
+                }
+
+            } catch (error) {
+                console.error("Error loading post: ", error);
+                postContainer.innerHTML = "<h1>Error loading post.</h1><a href='blogs.html'>Back to Blog</a>";
+            }
+        });
+        
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
